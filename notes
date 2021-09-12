@@ -1,0 +1,8 @@
+
+* all dashboard data is in md object in file assets\js\material-dashboard.js
+    * initDashboardPageCharts func have all the init data
+* gulpfile.js is the main file
+
+
+* assets\data\getData.js is new file that need to get the data and transfer to the charts 
+    * i have added an example object
