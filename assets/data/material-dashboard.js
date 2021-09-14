@@ -381,7 +381,7 @@ md = {
                     }
                 }]
             ];
-            var websiteViewsChart = Chartist.line('#humidityChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
+            var websiteViewsChart = Chartist.Line('#humidityChart', dataWebsiteViewsChart, optionsWebsiteViewsChart, responsiveOptions);
 
             //start animation for the humidity chart
             md.startAnimationForBarChart(websiteViewsChart);
