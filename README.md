@@ -7,7 +7,7 @@ TODO:
 
 > dashboard - tab
 >
-> > whether - card
+> > weather - card
 > > temperature, humidity, lux-meter, wind{direction, strength}, rain?
 > > (cards with graphs)
 > >
