@@ -11,5 +11,11 @@ data = {
     },
     getDomeAzimuth: function () {
         return "230 Degree";
-    },
+    }
 };
+send_operation = {
+
+};
+
+
+export{data}

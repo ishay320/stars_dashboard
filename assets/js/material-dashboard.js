@@ -315,7 +315,7 @@ md = {
       dataDailyTempChart = {
         labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         series: [
-          [30, 7, 7, 7, 7, 7, 7]
+          [7, 7, 7, 7, 30, 7, 7]
         ]
       };
 
