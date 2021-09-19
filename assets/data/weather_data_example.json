@@ -1,0 +1,51 @@
+{
+    "temperature":[
+        {"Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)":23.2},
+        {"Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)":23.2},
+        {"Sun Sep 19 2021 20:46:37 GMT+0300 (Israel Daylight Time)":25.2},
+        {"Sun Sep 19 2021 21:46:37 GMT+0300 (Israel Daylight Time)":23.2},
+        {"Sun Sep 19 2021 22:46:37 GMT+0300 (Israel Daylight Time)":21.2},
+        {"Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)":26.2},
+        {"Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)":23.2}
+    ],
+    "humidity":[
+        {"Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)":20},
+        {"Sun Sep 19 2021 20:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 21:46:37 GMT+0300 (Israel Daylight Time)":30},
+        {"Sun Sep 19 2021 22:46:37 GMT+0300 (Israel Daylight Time)":45},
+        {"Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)":23},
+        {"Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)":11}
+    ],
+    "wind_strength":[
+        {"Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)":20},
+        {"Sun Sep 19 2021 20:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 21:46:37 GMT+0300 (Israel Daylight Time)":30},
+        {"Sun Sep 19 2021 22:46:37 GMT+0300 (Israel Daylight Time)":45},
+        {"Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)":23},
+        {"Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)":11}
+    ],
+    "wind_direction":[
+        {"Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)":210},
+        {"Sun Sep 19 2021 20:46:37 GMT+0300 (Israel Daylight Time)":180},
+        {"Sun Sep 19 2021 21:46:37 GMT+0300 (Israel Daylight Time)":30},
+        {"Sun Sep 19 2021 22:46:37 GMT+0300 (Israel Daylight Time)":45},
+        {"Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)":23},
+        {"Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)":90}
+    ],
+    "rain":[
+
+    ],
+    "light":[
+        {"Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)":20},
+        {"Sun Sep 19 2021 20:46:37 GMT+0300 (Israel Daylight Time)":10},
+        {"Sun Sep 19 2021 21:46:37 GMT+0300 (Israel Daylight Time)":30},
+        {"Sun Sep 19 2021 22:46:37 GMT+0300 (Israel Daylight Time)":45},
+        {"Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)":23},
+        {"Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)":11}
+    ]
+
+}

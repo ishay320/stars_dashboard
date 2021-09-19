@@ -1,6 +1,6 @@
 // example class
 data = {
-    getWeatherData: function () {
+    getWeatherData: function (hour, day) {
         return [23, 24, 11, 13, 44, 32];
     },
     getHumidity: function () {
