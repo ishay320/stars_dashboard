@@ -267,7 +267,7 @@
               <div class="card card-stats">
                 <div class="card-header card-header-danger card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">circle</i>
+                    <i class="material-icons">360</i>
                   </div>
                   <p class="card-category">azimuth</p>
                   <h3 class="card-title">134&deg;</h3>
@@ -281,7 +281,7 @@
               <div class="card card-stats">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <i class="material-icons">stars</i>
+                    <i class="material-icons">gps_fixed</i>
                   </div>
                   <p class="card-category">position in sky </p>
                   <h3 class="card-title">+245,+23</h3>
@@ -353,8 +353,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
   <script src="../assets/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <!-- Google Maps Plugin   
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+
   <!-- Chartist JS -->
   <script src="../assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -369,6 +371,10 @@
   <script>
     $(document).ready(function () {
       md.initDashboardPageCharts();
+      setInterval(() => {
+        md.initDashboardPageCharts()
+      },60000*1); // 1 min interval
+
     });
 
 

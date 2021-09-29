@@ -16,6 +16,3 @@ data = {
 send_operation = {
 
 };
-
-
-export{data}

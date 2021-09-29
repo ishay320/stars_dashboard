@@ -431,7 +431,7 @@ md = {
     initRightMenu: debounce(function () {
         $sidebar_wrapper = $('.sidebar-wrapper');
 
-        if (!mobile_menu_initialized) {
+        if (!mobile_menu_initialized) { // there is a problem with the commented lines because we dont have nav bar
             $navbar = $('nav').find('.navbar-collapse').children('.navbar-nav');
 
             mobile_menu_content = '';
@@ -440,15 +440,15 @@ md = {
 
             nav_content = '<ul class="nav navbar-nav nav-mobile-menu">' + nav_content + '</ul>';
 
-            navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
+            // navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
 
             $sidebar_nav = $sidebar_wrapper.find(' > .nav');
 
             // insert the navbar form before the sidebar list
             $nav_content = $(nav_content);
-            $navbar_form = $(navbar_form);
+            // $navbar_form = $(navbar_form);
             $nav_content.insertBefore($sidebar_nav);
-            $navbar_form.insertBefore($nav_content);
+            // $navbar_form.insertBefore($nav_content);
 
             $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function (event) {
                 event.stopPropagation();
