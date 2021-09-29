@@ -8,6 +8,11 @@ app.get('/', (req, res) => {
     );
 })
 
+app.get('/camera', (req, res) => {
+    res.sendFile('camera.html', { root: __dirname + "/html_dashboard" }
+    );
+})
+
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`app listening at http://localhost:${port}`)
 })
