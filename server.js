@@ -13,6 +13,12 @@ app.get('/camera', (req, res) => {
     );
 })
 
+app.get('/control', (req, res) => {
+    res.sendFile('control.html', { root: __dirname + "/html_dashboard" }
+    );
+})
+
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
 })
+
