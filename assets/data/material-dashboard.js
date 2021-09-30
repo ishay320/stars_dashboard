@@ -275,43 +275,57 @@ md = {
         }
     },
 
-    initDashboardPageCharts: function (json = null) {  ///very useful //******************** */
+    initDashboardPageCharts: function (json) {  ///very useful //******************** */
         if (json == null) {
-            alert("there is problem with the server try again later ")
-
-        } 
-
+            // alert("there is problem with the server try again later ")
+            return;
+        }
 
         if ($('#tempChart').length != 0 || $('#humidityChart').length != 0 || $('#windChart').length != 0) {
-            /* ----------==========     Temp Chart    ==========---------- */
+            /* ------====== help functions ======------*/
             // make arr of 23 last hours
-            startHour = new Date().getHours() + 1;
-            var hourArray = []
-            for (let index = startHour; index < startHour + 24; index++) {
-                i = index % 24 // modulo for day
-                hourArray.push(i)
+            var getHourArray = function (hourNumber) {
+                endHour = new Date().getHours() + 1;
+                var hourArray = []
+                for (let index = endHour-hourNumber; index < endHour; index++) {
+                    i = index % 24 // modulo for day
+                    hourArray.push(i)
+                }
+                return hourArray
+            }
+            //make arr from key
+            var getValueArray = function (key, maxHour = 23) {
+                var JsonArray = new Array()
+                for (let i in json[key]) {
+                    JsonArray.push(json[key][i]);
+                }
+                var minSize = Math.min(JsonArray.length, maxHour) // choose max hour
+                var dataArray = []
+                for (let i = JsonArray.length - 1; i >= JsonArray.length - minSize; i--) {
+                    dataArray.push(Object.values(JsonArray[i])[0])
+                }
+                dataArray.reverse()
+                return dataArray
             }
 
-            var tempData = [] // get from server ****************************
-            for (let index = 0; index < 24; index++) {
-                tempData.push(Math.random() * 24)
-            }
+            /* ----------==========     Temp Chart    ==========---------- */
+
+            valueArray = getValueArray('temperature')
+            hourArray = getHourArray(valueArray.length)
 
             dataDailyTempChart = {
                 labels: hourArray,
                 series: [
-                    tempData
+                    valueArray
                 ]
             };
             // TODO: take fixed value of max min y axis
-            tempMin = Math.min(hourArray)
-            tempMax = Math.max(hourArray)
             optionsDailyTempChart = {
                 lineSmooth: Chartist.Interpolation.cardinal({
                     tension: 0
                 }),
-                low: tempMin,
-                high: tempMax, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+                low: Math.min(valueArray),
+                high: Math.max(valueArray), 
                 chartPadding: {
                     top: 0,
                     right: 0,
@@ -322,16 +336,18 @@ md = {
 
             var dailyTempChart = new Chartist.Line('#tempChart', dataDailyTempChart, optionsDailyTempChart);
 
-            md.startAnimationForLineChart(dailyTempChart);
+            md.startAnimationForBarChart(dailyTempChart);
 
 
 
             /* ----------==========     Wind Chart initialization    ==========---------- */
+            valueArray = getValueArray('wind_strength')
+            hourArray = getHourArray(valueArray.length)
 
             dataCompletedTasksChart = {
-                labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+                labels: hourArray,
                 series: [
-                    [230, 750, 450, 300, 280, 240, 200, 190]
+                    valueArray
                 ]
             };
 
@@ -339,8 +355,8 @@ md = {
                 lineSmooth: Chartist.Interpolation.cardinal({
                     tension: 0
                 }),
-                low: 0,
-                high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+                low: Math.min(valueArray),
+                high: Math.max(valueArray), 
                 chartPadding: {
                     top: 0,
                     right: 0,
@@ -356,27 +372,29 @@ md = {
 
 
             /* ----------==========     Humidity Chart initialization    ==========---------- */
+            valueArray = getValueArray('humidity')
+            hourArray = getHourArray(valueArray.length)
 
             var dataWebsiteViewsChart = {
-                labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+                labels: hourArray,
                 series: [
-                    [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+                    valueArray
 
                 ]
             };
             var optionsWebsiteViewsChart = {
-                axisX: {
-                    showGrid: false
-                },
-                low: 0,
-                high: 1000,
+                lineSmooth: Chartist.Interpolation.cardinal({
+                    tension: 0
+                }),
+                low: Math.min(valueArray),
+                high: Math.max(valueArray), 
                 chartPadding: {
                     top: 0,
-                    right: 5,
+                    right: 0,
                     bottom: 0,
                     left: 0
                 }
-            };
+            }
             var responsiveOptions = [
                 ['screen and (max-width: 640px)', {
                     seriesBarDistance: 5,
