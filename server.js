@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 5000
-var data;
-
+var weatherData
+var telescopeData
 
 app.use('/assets', express.static(__dirname + '/assets'));
 
@@ -21,11 +21,14 @@ app.get('/control', (req, res) => {
     );
 })
 
-app.get('/data', (req, res) => {
+app.get('/weatherData', (req, res) => {
     // send the data to the user
-    res.json(data);
+    res.json(weatherData);
 })
-
+app.get('/telescopeData', (req, res) => {
+    // send the data to the user
+    res.json(telescopeData);
+})
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
 })
@@ -48,7 +51,13 @@ setInterval(() => {
 }, 6000 * 60);
 
 //mockup
-data = json = {
+telescopeData = {
+    "power_status": true,
+    "dome_status": true,
+    "azimuth": "187",
+    "pos_in_sky": "+235,+23"
+}
+weatherData = {
     "temperature": [
         { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 23.2 },
         { "Sun Sep 19 2021 19:46:37 GMT+0300 (Israel Daylight Time)": 23.2 },

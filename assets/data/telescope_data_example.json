@@ -1,6 +1,6 @@
 {
-    "power":true,
-    "is-dome-open":true,
-    "azimuth":"?",
-    "pos-in-sky":"?"
+    "power_status":true,
+    "dome_status":true,
+    "azimuth":"187",
+    "pos_in_sky":"+235,+23"
 }

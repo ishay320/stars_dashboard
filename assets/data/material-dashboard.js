@@ -287,7 +287,7 @@ md = {
             var getHourArray = function (hourNumber) {
                 endHour = new Date().getHours() + 1;
                 var hourArray = []
-                for (let index = endHour-hourNumber; index < endHour; index++) {
+                for (let index = endHour - hourNumber; index < endHour; index++) {
                     i = index % 24 // modulo for day
                     hourArray.push(i)
                 }
@@ -325,7 +325,7 @@ md = {
                     tension: 0
                 }),
                 low: Math.min(valueArray),
-                high: Math.max(valueArray), 
+                high: Math.max(valueArray),
                 chartPadding: {
                     top: 0,
                     right: 0,
@@ -356,7 +356,7 @@ md = {
                     tension: 0
                 }),
                 low: Math.min(valueArray),
-                high: Math.max(valueArray), 
+                high: Math.max(valueArray),
                 chartPadding: {
                     top: 0,
                     right: 0,
@@ -387,7 +387,7 @@ md = {
                     tension: 0
                 }),
                 low: Math.min(valueArray),
-                high: Math.max(valueArray), 
+                high: Math.max(valueArray),
                 chartPadding: {
                     top: 0,
                     right: 0,
@@ -410,6 +410,23 @@ md = {
             //start animation for the humidity chart
             md.startAnimationForBarChart(websiteViewsChart);
         }
+    },
+
+    dashboardTelescopeData: function (json) {
+        if(json==null){
+            return
+        }
+        if ($('#power_status').length != 0 || $('#dome_status').length != 0 || $('#azimuth').length != 0|| $('#pos_in_sky').length != 0) {
+            dome_status = json.dome_status? "open":"close"
+            document.getElementById("dome_status").innerHTML = dome_status;
+            document.getElementById("azimuth").innerHTML = json.azimuth+"&deg;";
+            document.getElementById("pos_in_sky").innerHTML = json.pos_in_sky;
+            power_status = json.power_status? "ON":"OFF"
+            document.getElementById("power_status").innerHTML = power_status;
+
+
+        }
+
     },
 
     initMinimizeSidebar: function () {

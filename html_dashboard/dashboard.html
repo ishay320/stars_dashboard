@@ -164,8 +164,7 @@
                     <i class="material-icons">power</i>
                   </div>
                   <p class="card-category">power status</p>
-                  <h3 class="card-title">ON
-                  </h3>
+                  <h3 class="card-title" id="power_status"></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -182,7 +181,7 @@
                     <i class="material-icons">window</i>
                   </div>
                   <p class="card-category">Dome status</p>
-                  <h3 class="card-title">open</h3>
+                  <h3 class="card-title" id="dome_status"></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -199,7 +198,7 @@
                     <i class="material-icons">360</i>
                   </div>
                   <p class="card-category">azimuth</p>
-                  <h3 class="card-title">134&deg;</h3>
+                  <h3 class="card-title" id="azimuth"></h3>
                 </div>
                 <div class="card-footer">
                 </div>
@@ -213,7 +212,7 @@
                     <i class="material-icons">gps_fixed</i>
                   </div>
                   <p class="card-category">position in sky </p>
-                  <h3 class="card-title">+245,+23</h3>
+                  <h3 class="card-title" id="pos_in_sky"></h3>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
@@ -386,7 +385,7 @@
   <script src="../assets/data/getData.js"></script>
 
   <script>
-    var getDataAndUpdate = function () {
+    var getWeatherDataAndUpdate = function () {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -395,16 +394,34 @@
           md.initDashboardPageCharts(json);
         }
       };
-      xhttp.open("GET", "/data", true);
+      xhttp.open("GET", "/weatherData", true);
+      xhttp.send();
+    }
+
+    var getTelescopeDataAndUpdate = function () {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var json = this.responseText;
+          json = JSON.parse(json)
+          md.dashboardTelescopeData(json);
+        }
+      };
+
+      xhttp.open("GET", "/telescopeData", true);
       xhttp.send();
     }
 
     $(document).ready(function () {
-      getDataAndUpdate()
+      getWeatherDataAndUpdate()
+
+      // md.dashboardTelescopeData({ "test": 1 })
 
       setInterval(function () {
-        getDataAndUpdate()
-      }, 1000);
+          getWeatherDataAndUpdate()
+          getTelescopeDataAndUpdate()
+        
+      }, 1000); //update time
     });
 
 
