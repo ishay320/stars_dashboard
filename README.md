@@ -1,34 +1,22 @@
-TODO:
+# Telescope Dashboard Ariel University
 
-- remove useless imports from dashboard.html
-- full files cleanup
+this is display that show status and control the telescope of ariel university.
 
-<!--  -->
+it contain:
+* weather & status tab
+    * temperature
+    * humidity
+    * wind direction
+    * wind strength
+    * power status
+    * dome status 
+    * azimuth
+    * pos in sky
+* telescope camera
+    * camera of the telescope
+    * control buttons
+* telescope control
+    * power
+    * dome
+    * camera of the interior
 
-> dashboard - tab
->
-> > weather - card
-> > temperature, humidity, lux-meter, wind{direction, strength}, rain?
-> > (cards with graphs)
-> >
-> > telescope - card
-> > power(is telescope on?)(card footer time of start), is-dome-open-(shutter), azimuth, pos-in-sky
-> > (just cards with data)
-
-<!--  -->
-
-> control - tab
->
-> > joystick, open-close,
-
-<!--  -->
-
-> picture - tab
->
-> > streaming-of{telescope,tiny-telescope,computer-camera}
-
-
-
-
-DONE:
-*
