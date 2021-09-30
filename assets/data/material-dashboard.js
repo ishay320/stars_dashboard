@@ -275,10 +275,16 @@ md = {
         }
     },
 
-    initDashboardPageCharts: function () {  ///very useful //******************** */
+    initDashboardPageCharts: function (json = null) {  ///very useful //******************** */
+        if (json == null) {
+            alert("there is problem with the server try again later ")
+
+        } 
+
 
         if ($('#tempChart').length != 0 || $('#humidityChart').length != 0 || $('#windChart').length != 0) {
             /* ----------==========     Temp Chart    ==========---------- */
+            // make arr of 23 last hours
             startHour = new Date().getHours() + 1;
             var hourArray = []
             for (let index = startHour; index < startHour + 24; index++) {
@@ -297,7 +303,7 @@ md = {
                     tempData
                 ]
             };
-            // TODO: take fixed value 
+            // TODO: take fixed value of max min y axis
             tempMin = Math.min(hourArray)
             tempMax = Math.max(hourArray)
             optionsDailyTempChart = {
@@ -320,7 +326,7 @@ md = {
 
 
 
-            /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+            /* ----------==========     Wind Chart initialization    ==========---------- */
 
             dataCompletedTasksChart = {
                 labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
@@ -346,10 +352,10 @@ md = {
             var completedTasksChart = new Chartist.Line('#windChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
             // start animation for the Completed Tasks Chart - Line Chart
-            md.startAnimationForLineChart(completedTasksChart);
+            md.startAnimationForBarChart(completedTasksChart);
 
 
-            /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+            /* ----------==========     Humidity Chart initialization    ==========---------- */
 
             var dataWebsiteViewsChart = {
                 labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],

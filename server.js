@@ -18,6 +18,33 @@ app.get('/control', (req, res) => {
     );
 })
 
+app.get('/data', (req, res) => {
+    //get data from the different server
+    var data = {
+        "temperature": [
+            { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 23.2 }
+        ],
+        "humidity": [
+            { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 10 }
+        ],
+        "wind_strength": [
+            { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 10 }
+        ],
+        "wind_direction": [
+            { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 180 }
+        ],
+        "rain": [
+
+        ],
+        "light": [
+            { "Sun Sep 19 2021 18:46:37 GMT+0300 (Israel Daylight Time)": 10 }
+        ]
+    }
+
+    // send the data to the user
+    res.json(data);
+})
+
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`)
 })
