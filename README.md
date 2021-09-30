@@ -21,3 +21,11 @@ it contain:
     * camera of the interior
 ## the main page:
 ![example](https://github.com/ishay320/stars_dashboard/blob/main/docs/mainPage.jpeg)
+
+## how to start the server:
+clone the project, and type in the command line:
+
+```
+npm install
+npm start
+```
