@@ -79,7 +79,6 @@ weatherData = {
         { "Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)": 23 },
         { "Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)": 23 },
         { "Sun Sep 19 2021 23:46:37 GMT+0300 (Israel Daylight Time)": 23 },
-
         { "Sun Sep 20 2021 00:46:37 GMT+0300 (Israel Daylight Time)": 11 }
     ],
     "wind_strength": [

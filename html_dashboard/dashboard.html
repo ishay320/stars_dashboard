@@ -98,15 +98,16 @@
                 <div class="card-body">
                   <h4 class="card-title">Temperature</h4>
                   <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55%
+                    <span class="text-success" id="temperature_now">
                     </span>
-                    increase today.
+                    now
                   </p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4
-                    minutes ago
+                    <i class="material-icons">access_time</i>
+                    <div class="update_time">updated 4
+                      minutes ago</div>
                   </div>
                 </div>
               </div>
@@ -120,15 +121,16 @@
                 <div class="card-body">
                   <h4 class="card-title">Humidity</h4>
                   <p class="card-category">
-                    <span class="text-success"><i class="fa fa-long-arrow-down"></i> 12%
+                    <span class="text-success" id="humidity_now">
                     </span>
-                    decrease today.
+                    now
                   </p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4
-                    minutes ago
+                    <i class="material-icons">access_time</i>
+                    <div class="update_time">updated 4
+                      minutes ago</div>
                   </div>
                 </div>
               </div>
@@ -140,12 +142,13 @@
                 </div>
                 <div class="card-body">
                   <h4 class="card-title">Wind</h4>
-                  <p class="card-category">azimuth +23 strength 5kmh</p>
+                  <p class="card-category" id="wind_azimuth">azimuth +23 strength 5kmh</p>
                 </div>
                 <div class="card-footer">
                   <div class="stats">
-                    <i class="material-icons">access_time</i> updated 4
-                    minutes ago
+                    <i class="material-icons">access_time</i>
+                    <div class="update_time">updated 4
+                      minutes ago</div>
                   </div>
                 </div>
               </div>
@@ -411,6 +414,20 @@
       xhttp.open("GET", "/telescopeData", true);
       xhttp.send();
     }
+    var last_update = 0
+
+    setInterval(() => {
+      last_update += 1
+    }, 1000)
+
+    setInterval(function () {
+      if ($('.update_time').length != 0) {
+        $('.update_time').each(function () {
+          $(this).text("updated " + last_update + " seconds ago");
+        });
+
+      }
+    }, 8000)
 
     $(document).ready(function () {
       getWeatherDataAndUpdate()
@@ -418,10 +435,12 @@
       // md.dashboardTelescopeData({ "test": 1 })
 
       setInterval(function () {
-          getWeatherDataAndUpdate()
-          getTelescopeDataAndUpdate()
-        
-      }, 1000); //update time
+        getWeatherDataAndUpdate()
+        getTelescopeDataAndUpdate()
+        last_update = 0
+      }, 10000); //update time
+
+
     });
 
 

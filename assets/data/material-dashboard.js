@@ -14,7 +14,6 @@
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
  */
-
 (function () {
     isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
@@ -338,7 +337,12 @@ md = {
 
             md.startAnimationForBarChart(dailyTempChart);
 
+            if ($('#temperature_now').length != 0) {
 
+                temperature_now = getValueArray('temperature', 1)[0]
+                document.getElementById("temperature_now").innerHTML = temperature_now + "&deg;";
+
+            }
 
             /* ----------==========     Wind Chart initialization    ==========---------- */
             valueArray = getValueArray('wind_strength')
@@ -370,6 +374,12 @@ md = {
             // start animation for the Completed Tasks Chart - Line Chart
             md.startAnimationForBarChart(completedTasksChart);
 
+            if ($('#wind_azimuth').length != 0) {
+
+                wind_direction = getValueArray('wind_direction', 1)[0]
+                document.getElementById("wind_azimuth").innerHTML = "azimuth " + wind_direction + "&deg; strength " + valueArray[valueArray.length - 1] + "kmh";
+
+            }
 
             /* ----------==========     Humidity Chart initialization    ==========---------- */
             valueArray = getValueArray('humidity')
@@ -409,19 +419,26 @@ md = {
 
             //start animation for the humidity chart
             md.startAnimationForBarChart(websiteViewsChart);
+            if ($('#humidity_now').length != 0) {
+
+                humidity_now = getValueArray('humidity', 1)[0]
+                document.getElementById("humidity_now").innerHTML = humidity_now + "%";
+
+            }
+
         }
     },
 
     dashboardTelescopeData: function (json) {
-        if(json==null){
+        if (json == null) {
             return
         }
-        if ($('#power_status').length != 0 || $('#dome_status').length != 0 || $('#azimuth').length != 0|| $('#pos_in_sky').length != 0) {
-            dome_status = json.dome_status? "open":"close"
+        if ($('#power_status').length != 0 || $('#dome_status').length != 0 || $('#azimuth').length != 0 || $('#pos_in_sky').length != 0) {
+            dome_status = json.dome_status ? "open" : "close"
             document.getElementById("dome_status").innerHTML = dome_status;
-            document.getElementById("azimuth").innerHTML = json.azimuth+"&deg;";
+            document.getElementById("azimuth").innerHTML = json.azimuth + "&deg;";
             document.getElementById("pos_in_sky").innerHTML = json.pos_in_sky;
-            power_status = json.power_status? "ON":"OFF"
+            power_status = json.power_status ? "ON" : "OFF"
             document.getElementById("power_status").innerHTML = power_status;
 
 
