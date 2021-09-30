@@ -19,4 +19,5 @@ it contain:
     * power
     * dome
     * camera of the interior
-
+## the main page:
+![example](https://github.com/ishay320/stars_dashboard/blob/main/docs/mainPage.jpeg)
