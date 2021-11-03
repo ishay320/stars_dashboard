@@ -21,6 +21,17 @@ app.get('/control', (req, res) => {
     );
 })
 
+app.get('/ACunit', (req, res) => {
+    res.sendFile('ACunit.html', { root: __dirname + "/html_dashboard" }
+    );
+})
+
+app.get('/ac_data', (req, res) => {
+    // TODO: implement connection to the esp8266
+    console.log("not implemented yet")
+    res.send("not implemented yet")
+})
+
 app.get('/weatherData', (req, res) => {
     // send the data to the user
     res.json(weatherData);
