@@ -28,6 +28,8 @@ app.get('/ACunit', (req, res) => {
 
 app.get('/ac_data', (req, res) => {
     // TODO: implement connection to the esp8266
+    //  example for sending:
+    //  irSend?protocol=18&model=1&mode=0&celsius=1&degrees=23&fanspeed=0&swingv=-1&swingh=-1&light=1&beep=1&econo=1&filter=1&turbo=0&quiet=0&sleep=-1&clean=1&clock=-1&power=1
     console.log("not implemented yet")
     res.send("not implemented yet")
 })
