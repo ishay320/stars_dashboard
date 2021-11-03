@@ -31,3 +31,7 @@ clone the project, and type in the command line:
 npm install
 npm start
 ```
+
+## side project
+remote control for the AC unit written in C++ for the esp8266
+- https://github.com/ishay320/esp8266_IRremote
