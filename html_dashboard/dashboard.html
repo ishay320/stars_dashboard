@@ -425,7 +425,7 @@
 
     setInterval(() => {
       last_update += 1
-    }, 1000)
+    }, 1*1000)
 
     setInterval(function () {
       if ($('.update_time').length != 0) {
@@ -434,7 +434,7 @@
         });
 
       }
-    }, 8000)
+    }, 8*1000)
 
     $(document).ready(function () {
       getWeatherDataAndUpdate()
@@ -445,7 +445,7 @@
         getWeatherDataAndUpdate()
         getTelescopeDataAndUpdate()
         last_update = 0
-      }, 10000); //update time
+      }, 10*1000); //update time
 
 
     });
